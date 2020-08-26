@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 25vw;
+    height: 25vh;
+    position: absolute;
+}
+
+.vermelha {
+    background-color: red;
+    left: 0vw;
+    top: 0vh;
+}
+
+.azul{
+    background-color: blue;
+    left: 75vw;
+    top: 0vh;
+}
+
+.amarela {
+    background-color: yellow;
+    left: 0vw;
+    top: 75vh;
+}
+
+.verde {
+    background-color: green;
+    left: 75vw;
+    top: 75vh;
+}
+
+.preta {
+    background-color: black;
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    top: 12.5vw;
+}
