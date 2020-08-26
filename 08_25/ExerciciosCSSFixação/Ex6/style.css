@@ -1,0 +1,14 @@
+a {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(194, 188, 188);
+    color: blue;
+}
+
+a:visited {
+    color: yellow;
+}
+
+a:hover {
+    color:red;
+}
