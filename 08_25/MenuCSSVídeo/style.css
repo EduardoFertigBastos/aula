@@ -1,8 +1,9 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
+/* Menu */
 #menu {
     background: orange;
     display: table;
@@ -31,3 +32,4 @@
     color: orange;
     background: black;
 }
+
