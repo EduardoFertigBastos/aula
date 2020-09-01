@@ -132,42 +132,52 @@ footer {
     padding: 30px 50px;
 }
 
-.big_div_icones {
+.group_icons {
     margin-left: 3%;
-    border: 3px solid black;
+    border: 1px solid rgb(255, 255, 255);
     width: 20%;
     height: 70%;
     margin-bottom: 3%;
-    background-color: rgb(58, 99, 211);
+    background-color: rgb(49, 78, 158);
 }
 
-.little_div_icones {
-    padding-left: 10%;
-    border-style: solid;
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-color: rgb(35, 35, 151);
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 500;
+.group_icons ul {
+    list-style: none;
 }
 
-.facebook {
-    border-top-width: 3px;
-    border-bottom-width: 2px;
-}
-
-.linkedin {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-}
-
-.whatsapp {
-    border-top-width: 2px;
-    border-bottom-width: 3px;
-}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 81%;
+    height: 10%;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    border: 3px solid #284074;
+  }
+    
+  .fa-google {
+    background: #dd4b39;
+    border: 3px solid #ca3623;    
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
+    border: 3px solid #375188;
+  }
+    
+  .fa-instagram {
+    background: #eb4924;
+    border: 3px solid #c03d2b;
+  }
 
 .little_div_icones p {
     margin: 0;
@@ -193,7 +203,6 @@ footer address p {
 
 .footer_menu {
     margin-left: 10%;
-    border: 3px solid rgb(70, 62, 62);
     width: 30%;
     height: 90%;
 }
@@ -203,12 +212,17 @@ footer address p {
     
 }
 .footer_menu ul li {
-    border: 2px solid rgb(70, 62, 62);
+    border: 2px solid rgb(69, 111, 202);
     height: 45px;
     background-color: rgb(34, 28, 28);
     display: flex;    
     align-items: center;
-  justify-content: center
+    justify-content: center
+}
+
+.footer_menu ul li:hover {
+    background-color:  rgb(19, 64, 85);    
+    border: 4px solid rgb(25, 13, 138);
 }
 
 .footer_menu ul li a {
