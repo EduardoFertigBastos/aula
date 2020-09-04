@@ -117,6 +117,17 @@ body {
     text-indent: 1.5em;
 }
 
+.box ul {
+    list-style: none;
+}
+
+.ipm {
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
 .box ul li {
     font-size: 1.3em;
     text-indent: 2em;
