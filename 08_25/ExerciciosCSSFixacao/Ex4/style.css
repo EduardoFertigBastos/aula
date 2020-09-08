@@ -11,26 +11,26 @@ div {
 
 .vermelha {
     background-color: red;
-    left: 0vw;
-    top: 0vh;
+    left: 0px;
+    top: 0px;
 }
 
 .azul{
     background-color: blue;
-    left: 75vw;
-    top: 0vh;
+    right: 0px;
+    top: 0px;
 }
 
 .amarela {
     background-color: yellow;
-    left: 0vw;
-    top: 75vh;
+    left: 0px;
+    bottom: 0px;
 }
 
 .verde {
     background-color: green;
-    left: 75vw;
-    top: 75vh;
+    right: 0px;
+    bottom: 0px;
 }
 
 .preta {
