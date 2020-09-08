@@ -33,6 +33,7 @@ body {
 
 #menu ul {
     list-style: none;
+    width: 780px;
 }
 
 #menu ul li {
@@ -42,17 +43,66 @@ body {
 #menu ul li a {
     font: 14px verdana, arial, sans-serif;
     color: white;
-    background: black;
+    background: url('../imagens/menu.png');
     text-decoration: none;
     float: left;
+    height: calc(8% - 38px);
     padding: 19px 12px;
     margin-left: 1px;
 }
 
-#menu ul li a:hover {
-    color: rgb(255, 242, 217);
-    background: rgb(0, 0, 153);
+#menu ul li a.menu01 {
+    background-position: 0px 0px;
+    width: 60px;
 }
+
+#menu ul li a.menu02 {
+    background-position: -60px 0px;
+    width: 65px;
+}
+
+#menu ul li a.menu03 {
+    background-position: -125px 0px;
+    width: 110px;
+}
+
+#menu ul li a.menu04 {
+    background-position: -235px 0px;
+    width: 30px;
+}
+
+#menu ul li a.menu05 {
+    background-position: -265px 0px;
+    width: 50px;
+}
+
+#menu ul li a.menu01:hover {
+    background-position: 0px -56px;
+    width: 60px;
+}
+
+#menu ul li a.menu02:hover {
+    background-position: -60px -56px;
+    width: 65px;
+}
+
+#menu ul li a.menu03:hover {
+    background-position: -125px -56px;
+    width: 110px;
+}
+
+#menu ul li a.menu04:hover {
+    background-position: -235px -56px;
+    width: 30px;
+}
+
+#menu ul li a.menu05:hover {
+    background-position: -265px -56px;
+    width: 50px;
+}
+
+
+
 
 /*****************************************************************************************************
  **
@@ -162,12 +212,12 @@ body {
     border-color: rgb(51, 51, 242);
 }
 
-
-/************************************************************************************************
- *
- * Elenco
- *
-*/
+#geninho {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
 
 
 
