@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Contato </title>
     <link rel="stylesheet" href="estilo/style.css">
+    <link rel="stylesheet" href="estilo/form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="imagens/icon.png">
 </head>
@@ -20,7 +21,7 @@
                         <a href="curriculo.html">Currículo</a>
                     </li>
                     <li>
-                        <a href="brasileirao.html">Brasileirão</a>
+                        <a href="coletiva.html">Coletiva</a>
                     </li>
                     <li>
                         <a href="avai.html">Avaí</a>
@@ -39,6 +40,34 @@
         </section>
     </header>
 
+    <section class="main-content">
+        <h1>Contato</h1>
+
+        <div class="div-content">
+            <form action="contato.html" method="POST">
+
+                <label for="name">
+                    <input type="text" name="name" class="name" placeholder="Nome">
+                </label>
+                
+
+                <label for="name">
+                    <input type="text" name="number" class="telephone" placeholder="Telefone">
+                </label>
+                
+
+                <label for="email">
+                    <input type="text" name="email" class="email" placeholder="Email">
+                </label>
+
+                <textarea name="mensagem" id="mensagem" cols="30" rows="10">
+                    Deixe aqui sua mensagem...
+                </textarea>
+
+                <input type="submit" value="Enviar" class="submit">
+            </form>
+        </div>
+    </section>
     
     <div class="row"></div>
     <footer>
@@ -61,7 +90,7 @@
                         <a href="curriculo.html">Currículo</a>
                     </li>
                     <li>
-                        <a href="brasileirao.html">Brasileirão</a>
+                        <a href="coletiva.html">Coletiva</a>
                     </li>
                     <li>
                         <a href="avai.html">Avaí</a>

@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+ul.team {
+    width: 700px;
+    margin: 0 auto;
+    padding: 45px;
+    overflow: hidden;
+    list-style: none;
+    z-index: 4;
+}
+
+ul.team li span {
+    opacity: 0;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000000;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 9pt;
+    line-height: 370px;
+    padding: 5px;
+}
+
+ul.team li:hover {
+    background-position: 0px 0px;
+    background-size: 200px;
+    transform: scale(1.5);
+}
+
+ul.team li:hover span { 
+    opacity: 1;
+}
+
+ul.team li {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 5px solid white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    transition: all 0.3s ease-in;
+    background-position: 50% 50%;
+    background-size: 200px 200px;
+    background-color: #ffffff;
+}
+
+#i01 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Andre-Jacare.png');
+}
+
+#i02 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Claudio-Vitor.png');
+}
+
+#i03 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Gledson.png');
+}
+
+#i04 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Lucas-Frigeri.png');
+}
+
+#i05 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Airton.png');
+}
+
+#i06 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Betao.png');
+}
+
+#i07 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Eduardo-Kunde.png');
+}
+
+#i08 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Rafael-Pereira.png');
+}
+
+#i09 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/08/zagueiro-Sallinas-2020.png');
+}
+
+#i10 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Ze-Marcos.png');
+}
+
+#i11 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Arnaldo.png');
+}
+
+#i12 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Capa.png');
+}
+
+#i13 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Felipe-Badi.png');
+}
+
+#i14 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Iury.png');
+}
+
+#i15 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Leonan.png');
+}
+
+#i16 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Ramon.png');
+}
+
+#i17 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Bruno-Silva.png');
+}
+
+#i18 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Jean-Martim.png');
+}
+
+#i19 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Luan-Silva.png');
+}
+
+#i20 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Ralf.png');
+}
+
+#i21 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Wesley.png');
+}
+
+#i22 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Adryan.png');
+}
+
+#i23 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Lourenco.png');
+}
+
+#i24 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Pedro-Castro.png');
+}
+
+#i25 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2000/09/Thiaguinho.png');
+}
+
+#i26 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Valdivia.png');
+}
+
+#i27 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Da-Silva.png');
+}
+
+#i28 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Daniel-Amorim.png');
+}
+
+#i29 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Gaspar.png');
+}
+
+#i30 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Gaston.png');
+}
+
+#i31 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Getulio.png');
+}
+
+#i32 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Jonathan.png');
+}
+
+#i33 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/1993/06/B917D4E0-ED53-4F36-87CC-E9FA6DF2EBA4.jpeg');
+}
+
+#i34 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Renato.png');
+}
+
+#i35 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Rildo.png');
+}
+
+#i36 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Romulo.png');
+}
+
+#i37 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Tucao.png');
+}
+
+#i38 { 
+    background-image: url('https://www.avai.com.br/novo/wp-content/uploads/2020/07/Jau.png');
+}
