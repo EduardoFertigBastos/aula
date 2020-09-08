@@ -4,8 +4,8 @@
 }
 
 div {
-    width: 25vw;
-    height: 25vh;
+    width: 250px;
+    height: 250px;
     position: absolute;
 }
 
@@ -35,8 +35,8 @@ div {
 
 .preta {
     background-color: black;
-    width: 50vw;
-    height: 50vh;
-    left: 25vw;
-    top: 12.5vw;
+    left: 50%;
+    top: 50%;
+    margin-left: -125px;
+    margin-top: -125px;
 }
