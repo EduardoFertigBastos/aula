@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .linha::after {
+            content: "";
+            clear:both;
+            display: block;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .cabecalho {
+            background-color: #33b5e5;
+            color: white;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            color: white;
+            padding: 0;
+        }
+
+        .menu ul li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: tomato;
+            color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu ul li:hover {
+            background-color: #33b5c5;
+        }
+
+        .lateral {
+            background-color: teal;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 0.8em;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .rodape {
+            background-color: steelblue;
+            color: white;
+            text-align: 0.9em;
+            padding: 14px;
+        }
+
+        .col-1 {
+            width: 8.333%;
+        }
+
+        .col-2 {
+            width: 16.666%;
+        }
+
+        .col-3 {
+            width: 24.999%;
+        }
+
+        .col-4 {
+            width: 33.333%;
+        }
+
+        .col-5 {
+            width: 41.666%;
+        }
+        
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.3333%;
+        }
+
+        .col-8 {
+            width: 66.666%;
+        }
+
+        .col-9 {
+            width: 74.999%;
+        }
+
+        .col-10 {
+            width: 83.333%;
+        }
+
+        .col-11 {
+            width: 91.666%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            [class*="col-"] {
+                width:100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="cabecalho">
+        <h1>Rio do Sul</h1>
+      </div>
+   
+      <div class="linha">
+        <div class="col-3 menu">
+          <ul>
+            <li>A Cidade</li>
+            <li>As Empresas</li>
+            <li>Os Lugares</li>
+            <li>Os Restaurantes</li>
+          </ul>
+        </div>
+   
+        <div class="col-6">
+          <h1>A Cidade</h1>
+          <p>
+            Cidade de aproximadamente 70 mil habitantes, na região do Alto vale do
+            Itajaí. Uma pequena cidade no interior do Estado de Santa Catarina.
+          </p>
+        </div>
+   
+        <div class="col-3 right">
+          <div class="lateral">
+            <h2>Quem?</h2>
+            <p>Uma pequena Cidade em Santa Catarina.</p>
+            <h2>Onde?</h2>
+            <p>No Alto Vale do Itajaí.</p>
+            <h2>Quem?</h2>
+            <p>Uma cidade de muitas culturas.</p>
+          </div>
+        </div>
+      </div>
+   
+      <div class="rodape">
+        <p>Redimewnsione seu navegador para testar.</p>
+      </div>
+</body>
+</html>
