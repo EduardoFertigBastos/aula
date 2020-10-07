@@ -7,7 +7,22 @@
 </head>
 <body>
     <?php
+    for ($x = 0; $x < 10; $x++) {
+        for ($y = 0; $y < 4; $y++) {
+            $aMatriz[$x][$y] = rand(0, 100);
+        }   
+    }
     
+    for ($x = 0; $x < 10; $x++) {
+        for ($y = 0; $y < 4; $y++) {
+            // Só pra formatar
+            if ($aMatriz[$x][$y] < 10) {
+                $aMatriz[$x][$y] = '0' . $aMatriz[$x][$y];
+            }
+            echo "[$x][$y] = " . $aMatriz[$x][$y] . " ";
+        }   
+        echo '<br />';
+    }
 
     ?>
 </body>
