@@ -2,13 +2,13 @@
 function executamosOsCara(&$aDist, &$aCaminho, $iVertices)  
 {      
     for ($k = 0; $k < $iVertices; $k++) {  
-        for ($i = 0; $i < $iVertices; $i++) {  
-            for ($j = 0; $j < $iVertices; $j++) {  
-                if ($aDist[$i][$k] + $aDist[$k][$j] < $aDist[$i][$j]) {
+        for ($x = 0; $x < $iVertices; $x++) {  
+            for ($y = 0; $y < $iVertices; $y++) {  
+                if ($aDist[$x][$k] + $aDist[$k][$y] < $aDist[$x][$y]) {
                     
-                    $aDist[$i][$j] = $aDist[$i][$k] + $aDist[$k][$j];
+                    $aDist[$x][$y] = $aDist[$x][$k] + $aDist[$k][$y];
                     
-                    $aCaminho[$i][$j] = $aCaminho[$i][$k] . '-' . $aCaminho[$k][$j];
+                    $aCaminho[$x][$y] = $aCaminho[$x][$k] . '-' . $aCaminho[$k][$y];
                 }  
             }  
        }  
