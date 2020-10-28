@@ -115,10 +115,6 @@
         {
             if ($sIgual == '=') {
                 echo '<br>Resultado: ' . array_sum($aCon) . '<br/>';
-                echo '<pre>';
-
-                var_dump($aCon);
-                echo '</pre>';
             }
         }
 
