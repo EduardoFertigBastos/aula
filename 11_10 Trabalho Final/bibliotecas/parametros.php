@@ -7,13 +7,13 @@
 
     define('CATEGORIAS',                dirname(__DIR__) . '/cadastros/categorias/');
     define('CLIENTES',                  dirname(__DIR__) . '/cadastros/clientes/');
-    define('CLIENTESDEMOGRAFICOS',      dirname(__DIR__) . '/cadastros/clientesDemograficos/');
-    define('CUSTOMERCUSTOMERDEMO',      dirname(__DIR__) . '/cadastros/customerCustomerDemo/');
+    define('CLIENTES_DEMOGRAFICOS',     dirname(__DIR__) . '/cadastros/clientes_demograficos/');
+    define('CUSTOMER',                  dirname(__DIR__) . '/cadastros/customer/');
     define('FORNECEDORES',              dirname(__DIR__) . '/cadastros/fornecedores/');
     define('FUNCIONARIOS',              dirname(__DIR__) . '/cadastros/funcionarios/');
-    define('FUNCIONARIOSTERRITORIOS',   dirname(__DIR__) . '/cadastros/funcionarioTerritorios/');
+    define('FUNCIONARIOS_TERRITORIOS',  dirname(__DIR__) . '/cadastros/funcionario_territorios/');
     define('ORDENS',                    dirname(__DIR__) . '/cadastros/ordens/');
-    define('ORDENSDETALHES',            dirname(__DIR__) . '/cadastros/ordensDetalhes/');
+    define('ORDENS_DETALHES',           dirname(__DIR__) . '/cadastros/ordens_detalhes/');
     define('PRODUTOS',                  dirname(__DIR__) . '/cadastros/produtos/');
     define('REGIAO',                    dirname(__DIR__) . '/cadastros/regiao/');
     define('TERRITORIO',                dirname(__DIR__) . '/cadastros/territorios/');
