@@ -22,7 +22,7 @@
 
         $stmt->execute();
 
-        $aResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $aResult = $stmt->fetchAll(PDO::FETCH_NUM);
 
         $aCabec = [
             'Código',

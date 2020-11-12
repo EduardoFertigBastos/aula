@@ -37,9 +37,9 @@ function imprimirColunas($linha)
         echo    '<td> ' . $coluna . '</td>';
     }
     echo    '<td>';
-    echo        '<a href="#"> Alterar </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=categorias&metodo=alterar&id=' . $linha[0] . '"> Alterar </a>';
     echo        ' | ';
-    echo        '<a href="#"> Excluir </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=categorias&metodo=deletar&id=' . $linha[0] . '"> Excluir </a>';
     echo    '</td>';
 }
 
