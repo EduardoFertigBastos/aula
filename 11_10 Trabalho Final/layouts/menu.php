@@ -59,7 +59,7 @@
 
                 foreach($aItensSoltos as $linha) {
                     echo '  <li class="nav-item">
-                                <a href="' . $linha[0] . '" class="nav-link">' . 
+                                <a href="?pg=' . $linha[0] . '&metodo=listagem" class="nav-link">' . 
                                     ucwords($linha[0]) . 
                                 '</a>
                             </li>';
@@ -80,7 +80,7 @@
                             <?php 
 
                             foreach ($aItensDropdown as $linha) {
-                                echo '<a class="dropdown-item" href="' . $linha[0] . '">' .
+                                echo '<a class="dropdown-item" href="?pg=' . $linha[0] . '&metodo=listagem">' .
                                         ucwords(str_replace('_', ' ', $linha[0])) . '                     
                                     </a>';
                             }
