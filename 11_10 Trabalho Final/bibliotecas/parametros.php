@@ -1,20 +1,23 @@
 <?php
     define('ROOT_DIR',                  dirname(__DIR__));
+    define('LOCALHOST',                 'http://localhost:8000/');
 
-    define('BIBLIOTECAS',               dirname(__DIR__) . '/bibliotecas/');
-    define('CADASTROS',                 dirname(__DIR__) . '/cadastros/');
-    define('LAYOUTS',                   dirname(__DIR__) . '/layouts/');
 
-    define('CATEGORIAS',                dirname(__DIR__) . '/cadastros/categorias/');
-    define('CLIENTES',                  dirname(__DIR__) . '/cadastros/clientes/');
-    define('CLIENTES_DEMOGRAFICOS',     dirname(__DIR__) . '/cadastros/clientes_demograficos/');
-    define('CUSTOMER',                  dirname(__DIR__) . '/cadastros/customer/');
-    define('FORNECEDORES',              dirname(__DIR__) . '/cadastros/fornecedores/');
-    define('FUNCIONARIOS',              dirname(__DIR__) . '/cadastros/funcionarios/');
-    define('FUNCIONARIOS_TERRITORIOS',  dirname(__DIR__) . '/cadastros/funcionario_territorios/');
-    define('ORDENS',                    dirname(__DIR__) . '/cadastros/ordens/');
-    define('ORDENS_DETALHES',           dirname(__DIR__) . '/cadastros/ordens_detalhes/');
-    define('PRODUTOS',                  dirname(__DIR__) . '/cadastros/produtos/');
-    define('REGIAO',                    dirname(__DIR__) . '/cadastros/regiao/');
-    define('TERRITORIO',                dirname(__DIR__) . '/cadastros/territorios/');
-    define('TRANSPORTADORAS',           dirname(__DIR__) . '/cadastros/transportadoras/');
+    define('BIBLIOTECAS',               ROOT_DIR . '/bibliotecas/');
+    define('ESTRUTURA',                 ROOT_DIR . '/estrutura/');
+    define('CADASTROS',                 ROOT_DIR . '/cadastros/');
+    define('LAYOUTS',                   ROOT_DIR . '/layouts/');
+
+    define('CATEGORIAS',                ROOT_DIR . '/cadastros/categorias/');
+    define('CLIENTES',                  ROOT_DIR . '/cadastros/clientes/');
+    define('CLIENTES_DEMOGRAFICOS',     ROOT_DIR . '/cadastros/clientes_demograficos/');
+    define('CUSTOMER',                  ROOT_DIR . '/cadastros/customer/');
+    define('FORNECEDORES',              ROOT_DIR . '/cadastros/fornecedores/');
+    define('FUNCIONARIOS',              ROOT_DIR . '/cadastros/funcionarios/');
+    define('FUNCIONARIOS_TERRITORIOS',  ROOT_DIR . '/cadastros/funcionario_territorios/');
+    define('ORDENS',                    ROOT_DIR . '/cadastros/ordens/');
+    define('ORDENS_DETALHES',           ROOT_DIR . '/cadastros/ordens_detalhes/');
+    define('PRODUTOS',                  ROOT_DIR . '/cadastros/produtos/');
+    define('REGIAO',                    ROOT_DIR . '/cadastros/regiao/');
+    define('TERRITORIO',                ROOT_DIR . '/cadastros/territorios/');
+    define('TRANSPORTADORAS',           ROOT_DIR . '/cadastros/transportadoras/');

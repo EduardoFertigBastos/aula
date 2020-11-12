@@ -1,6 +1,4 @@
 <?php
-    require_once BIBLIOTECAS . 'estrutura.php';
-
     try {        
         if (isset($id)) {
             $id = $_GET['id'];
