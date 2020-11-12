@@ -1,26 +1,31 @@
 <?php
+    require_once BIBLIOTECAS . 'estrutura.php';
 
-    try {
-        require_once BIBLIOTECAS . 'estrutura.php';
+    try {        
         if (isset($id)) {
             $id = $_GET['id'];
 
             $sSql = 'SELECT *
                        FROM categorias
                       WHERE id = :id';
+
             $stmt = $conn->prepare($sSql);
+
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         } else {
 
-            $sSql = "SELECT categorias.IDCategoria     as 'Código',
-                            categorias.NomeCategoria   as 'Nome',
-                            categorias.Descricao       as 'Descrição'
-                      FROM trabalhofinal.categorias";
+            $sSql = "SELECT IDCategoria     as 'Código',
+                            NomeCategoria   as 'Nome',
+                            Descricao       as 'Descrição'
+                       FROM categorias";
+        
             $stmt = $conn->prepare($sSql);
         }
+
         $stmt->execute();
+
         $aResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        
+
         $aCabec = [
             'Código',
             'Nome',
@@ -28,10 +33,7 @@
         ];
 
         imprimirTabela($aCabec, $aResult);
-        ?>
         
-        </table>
-        <?php
     } catch(PDOException $e) {
-        echo 'Erro: ' . $e->getMessage();
+        imprimirErro($e);
     }
