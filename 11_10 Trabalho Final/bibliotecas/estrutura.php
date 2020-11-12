@@ -53,7 +53,7 @@ function imprimirTabela($aCabec, $aResult)
      */
     echo    '<table class="table table-striped">';
     echo        '<tr>';
-    imprimirCabecalho($aCabec);
+                        imprimirCabecalho($aCabec);
     echo                '<th colpasn="2">Ações</td>';
     echo         '</tr>';
 
@@ -63,14 +63,22 @@ function imprimirTabela($aCabec, $aResult)
     if (count($aResult)) {
         foreach ($aResult as $linha) {
             echo '<tr>';
-            imprimirColunas($linha);
+                        imprimirColunas($linha);
             echo '</tr>';
         }
     } else {
         echo    '<tr>
-                        <td colspan="3">
-                            Nenhum resultado foi encontrado
-                        </td>
-                    </tr>';
+                    <td colspan="3">
+                        Nenhum resultado foi encontrado
+                    </td>
+                </tr>';
     }
+}
+
+function botaoSubmit() {
+    echo    '<div class="col-sm-12 col-md-8 col-lg-8 offset-sm-4 offset-md-2 offset-lg-2">
+        
+                <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
+                
+            </div>';
 }

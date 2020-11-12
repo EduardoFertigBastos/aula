@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['gravar'])) {
+    if(isset($_POST['cadastrar'])) {
         try {
             /**
              * Buscar último ID inserido no banco ja que esta tabela não é auto_increment.
@@ -32,7 +32,7 @@
             /**
              * Redirecionar para a listagem.
              */
-            header('Location: ' . LOCALHOST . 'categorias?pg=categorias&metodo=listagem');
+            header('Location: ' . LOCALHOST . '?pg=categorias&metodo=listagem');
         } catch(PDOException $e) {
             imprimirErro($e);
         }
@@ -41,23 +41,3 @@
     
 ?>
 
-<!-- Formulário para cadastro. -->
-
-<form method="post" action="<?= LOCALHOST .'?pg=categorias&metodo=cadastro'?>">
-    <div class="form-group">
-        <label for="nome"> Nome </label>
-        <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome...">
-    </div>
-
-    <div class="form-group">
-        <label for="descricao"> Descrição </label>
-        <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição...">
-    </div>
-
-    <div class="form-group">
-        <label for="figura"> Figura </label>
-        <input type="text" name="figura" class="form-control" id="figura" placeholder="Figura...">
-    </div>
-
-    <input type="submit" value="Gravar" name="gravar">
-</form>
