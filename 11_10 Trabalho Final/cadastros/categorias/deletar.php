@@ -10,6 +10,8 @@ function confirmacaoDeletar($id)
         </form>'; 
 }
 
+function deletarBanco($conn)
+{
     try {
         if (isset($_POST['deletar'])) {
             /**
@@ -27,9 +29,14 @@ function confirmacaoDeletar($id)
             /**
              * Redirecionar para a listagem.
              */
-            header('Location: ' . LOCALHOST . '?pg=categorias&metodo=listagem');
+            redirecionar(
+                'categorias', 
+                'Registro deletado com sucesso.'
+            );
         }
     } catch(PDOException $e) {
         imprimirErro($e);
     }
+}
 
+deletarBanco($conn);

@@ -41,32 +41,37 @@ function menuAlterar($aValores)
         </form>'; 
 }
 
-if(isset($_POST['alterar'])) {
-    try {
-        /**
-         * Inserir no Banco de Dados os dados passados pelo formulário.
-         */
-        $sSql = "UPDATE categorias
-                    SET NomeCategoria   = :nome,
-                        Descricao       = :descricao,
-                        figura          = :figura
-                 WHERE IDCategoria = :id;";
-        $stmt = $conn->prepare($sSql);
-        $stmt->execute([
-            ':id'        => $_GET['alterar'],
-            ':nome'      => $_POST['nome'],
-            ':descricao' => $_POST['descricao'],
-            ':figura'    => $_POST['figura']
-        ]);
+function alterarBanco($conn)
+{
+    if(isset($_POST['alterar'])) {
+        try {
+            /**
+             * Inserir no Banco de Dados os dados passados pelo formulário.
+             */
+            $sSql = "UPDATE categorias
+                        SET NomeCategoria   = :nome,
+                            Descricao       = :descricao,
+                            figura          = :figura
+                    WHERE IDCategoria = :id;";
+            $stmt = $conn->prepare($sSql);
+            $stmt->execute([
+                ':id'        => $_GET['alterar'],
+                ':nome'      => $_POST['nome'],
+                ':descricao' => $_POST['descricao'],
+                ':figura'    => $_POST['figura']
+            ]);
 
-        /**
-         * Redirecionar para a listagem.
-         */
-        header('Location: ' . LOCALHOST . '?pg=categorias&metodo=listagem');
-    } catch(PDOException $e) {
-        imprimirErro($e);
+            /**
+             * Redirecionar para a listagem.
+             */
+            redirecionar(
+                'categorias', 
+                'Registro alterado com sucesso.'
+            );
+        } catch(PDOException $e) {
+            imprimirErro($e);
+        }   
     }
-   
 }
 
-
+alterarBanco($conn);

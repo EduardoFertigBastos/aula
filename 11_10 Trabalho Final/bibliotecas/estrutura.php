@@ -38,9 +38,11 @@ function imprimirColunas($linha)
         echo    '<td> ' . $coluna . '</td>';
     }
     echo    '<td>';
-    echo        '<a href="' . LOCALHOST . '?pg=categorias&metodo=listagem&alterar=' . $linha[0] . '"> Alterar </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=categorias&alterar=' . $linha[0] . '"> Alterar </a>';
     echo        ' | ';
-    echo        '<a href="' . LOCALHOST . '?pg=categorias&metodo=listagem&deletar=' . $linha[0] . '"> Excluir </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=categorias&deletar=' . $linha[0] . '"> Excluir </a>';
+    echo        ' | ';
+    echo        '<a href="' . LOCALHOST . '?pg=categorias&visualizar=' . $linha[0] . '"> Visualizar </a>';
     echo    '</td>';
 }
 
@@ -76,10 +78,8 @@ function imprimirTabela($aCabec, $aResult)
     }
 }
 
-function botaoSubmit() {
-    echo    '<div class="col-sm-12 col-md-8 col-lg-8 offset-sm-4 offset-md-2 offset-lg-2">
-        
-                <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-                
-            </div>';
+function redirecionar($sResto, $mensagem)
+{
+    $_SESSION['mensagem'] = $mensagem;
+    header('Location: ' . LOCALHOST . '?pg=' . $sResto);
 }

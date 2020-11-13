@@ -26,6 +26,8 @@ function menuCadastro() {
         </form>'; 
 }
 
+function cadastrarBanco($conn)
+{
     if(isset($_POST['cadastrar'])) {
         try {
             /**
@@ -59,12 +61,16 @@ function menuCadastro() {
             /**
              * Redirecionar para a listagem.
              */
-            header('Location: ' . LOCALHOST . '?pg=categorias&metodo=listagem');
+            redirecionar(
+                'categorias', 
+                'Registro cadastrado com sucesso.'
+            );
         } catch(PDOException $e) {
             imprimirErro($e);
         }
     }
+}
 
-
+cadastrarBanco($conn);
 ?>
 
