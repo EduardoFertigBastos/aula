@@ -1,9 +1,24 @@
 <?php
 
+function colherDadosCampos($conn)
+{
+    $sSql = "SELECT *
+               FROM categorias
+              WHERE IDCategoria = :id";
+                        
+    $stmt = $conn->prepare($sSql);
+
+    $stmt->bindParam(':id', $_GET['alterar'], PDO::PARAM_INT);
+    $stmt->execute();
+
+    return  $stmt->fetchAll(PDO::FETCH_NUM);
+}
+
 /**
  * Menu para Cadastro
  */
-function menuAlterar($aValores) {
+function menuAlterar($aValores) 
+{
     echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&metodo=listagem&alterar=' . $aValores[0] . '">
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">

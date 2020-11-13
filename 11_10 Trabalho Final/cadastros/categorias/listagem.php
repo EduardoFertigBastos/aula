@@ -36,16 +36,7 @@
 
                 require_once CATEGORIAS . 'alterar.php';
                 
-                $sSql = "SELECT *
-                           FROM categorias
-                          WHERE IDCategoria = :id";
-                        
-                $stmt = $conn->prepare($sSql);
-
-                $stmt->bindParam(':id', $_GET['alterar'], PDO::PARAM_INT);
-                $stmt->execute();
-
-                $aObjeto = $stmt->fetchAll(PDO::FETCH_NUM);
+                $aObjeto = colherDadosCampos($conn);
 
                 menuAlterar($aObjeto[0]); 
 
@@ -53,18 +44,7 @@
 
                 require_once CATEGORIAS . 'deletar.php';
                 
-                $sSql = "SELECT *
-                           FROM categorias
-                          WHERE IDCategoria = :id";
-                        
-                $stmt = $conn->prepare($sSql);
-
-                $stmt->bindParam(':id', $_GET['alterar'], PDO::PARAM_INT);
-                $stmt->execute();
-
-                $aObjeto = $stmt->fetchAll(PDO::FETCH_NUM);
-
-                menuAlterar($aObjeto[0]);
+                confirmacaoDeletar($_GET['deletar']);
             } 
 
         ?>
