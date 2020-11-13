@@ -1,24 +1,11 @@
 <?php
-    try {        
-        if (isset($id)) {
-            $id = $_GET['id'];
-
-            $sSql = 'SELECT *
-                       FROM categorias
-                      WHERE id = :id';
-
-            $stmt = $conn->prepare($sSql);
-
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        } else {
-
-            $sSql = "SELECT IDCategoria     as 'Código',
-                            NomeCategoria   as 'Nome',
-                            Descricao       as 'Descrição'
-                       FROM categorias";
+    try {    
+        $sSql = "SELECT IDCategoria     as 'Código',
+                        NomeCategoria   as 'Nome',
+                        Descricao       as 'Descrição'
+                   FROM categorias";
         
-            $stmt = $conn->prepare($sSql);
-        }
+        $stmt = $conn->prepare($sSql);
 
         $stmt->execute();
 
@@ -39,27 +26,48 @@
 
     <div class="col-sm-12 col-md-8 col-lg-8 offset-sm-4 offset-md-2 offset-lg-2">
 
-        <!-- Formulário para cadastro. -->
-        <form method="post" action="<?= LOCALHOST .'?pg=categorias&metodo=cadastro'?>">
-           
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="nome"> Nome </label>
-                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome...">
-            </div>
+        <?php
+            if (!isset(($_GET['alterar'])) && (!isset($_GET['deletar']))) {
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição...">
-            </div>
+                require_once CATEGORIAS . 'cadastrar.php';
+                menuCadastro();
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="figura"> Figura </label>
-                <input type="text" name="figura" class="form-control" id="figura" placeholder="Figura...">
-            </div>
-       
-            <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-            
-        </form>      
+            } else if (isset($_GET['alterar'])) {
+
+                require_once CATEGORIAS . 'alterar.php';
+                
+                $sSql = "SELECT *
+                           FROM categorias
+                          WHERE IDCategoria = :id";
+                        
+                $stmt = $conn->prepare($sSql);
+
+                $stmt->bindParam(':id', $_GET['alterar'], PDO::PARAM_INT);
+                $stmt->execute();
+
+                $aObjeto = $stmt->fetchAll(PDO::FETCH_NUM);
+
+                menuAlterar($aObjeto[0]); 
+
+            } else if (isset($_GET['deletar'])) {
+
+                require_once CATEGORIAS . 'deletar.php';
+                
+                $sSql = "SELECT *
+                           FROM categorias
+                          WHERE IDCategoria = :id";
+                        
+                $stmt = $conn->prepare($sSql);
+
+                $stmt->bindParam(':id', $_GET['alterar'], PDO::PARAM_INT);
+                $stmt->execute();
+
+                $aObjeto = $stmt->fetchAll(PDO::FETCH_NUM);
+
+                menuAlterar($aObjeto[0]);
+            } 
+
+        ?>
 
     </div>
 
