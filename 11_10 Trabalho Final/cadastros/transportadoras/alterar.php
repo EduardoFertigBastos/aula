@@ -61,10 +61,10 @@ function alterarBanco($conn)
             /**
              * Redirecionar para a listagem.
              */
-            redirecionar(
-                'transportadoras', 
-                'Registro alterado com sucesso.'
-            );
+            redirecionar([
+                'pagina' => 'transportadoras', 
+                'mensagem' => 'Registro alterado com sucesso.'
+            ]);
         } catch(PDOException $e) {
             imprimirErro($e);
         }   

@@ -29,10 +29,10 @@ function deletarBanco($conn)
             /**
              * Redirecionar para a listagem.
              */
-            redirecionar(
-                'transportadoras', 
-                'Registro deletado com sucesso.'
-            );
+            redirecionar([
+                'pagina'    => 'transportadoras', 
+                'mensagem'  => 'Registro deletado com sucesso.'
+            ]);
         }
     } catch(PDOException $e) {
         imprimirErro($e);

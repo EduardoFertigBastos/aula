@@ -22,7 +22,7 @@ function colherDadosCampos($conn)
  */
 function menuAlterar($aValores) 
 {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=transportadoras&alterar=' . $aValores[0] . '">
+    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&alterar=' . $aValores[0] . '">
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="nome"> Nome </label>
@@ -67,10 +67,10 @@ function alterarBanco($conn)
             /**
              * Redirecionar para a listagem.
              */
-            redirecionar(
-                'categorias', 
-                'Registro alterado com sucesso.'
-            );
+            redirecionar([
+                'pagina'    => 'categorias', 
+                'mensagem'  => 'Registro alterado com sucesso.'
+            ]);
         } catch(PDOException $e) {
             imprimirErro($e);
         }   

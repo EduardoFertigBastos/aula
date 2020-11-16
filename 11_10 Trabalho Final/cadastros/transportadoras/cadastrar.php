@@ -58,10 +58,10 @@ function cadastrarBanco($conn)
             /**
              * Redirecionar para a listagem.
              */
-            redirecionar(
-                'transportadoras', 
-                'Registro cadastrado com sucesso.'
-            );
+            redirecionar([
+                'pagina'    => 'transportadoras', 
+                'mensagem'  => 'Registro cadastrado com sucesso.'
+            ]);
         } catch(PDOException $e) {
             imprimirErro($e);
         }

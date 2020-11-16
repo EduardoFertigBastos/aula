@@ -64,10 +64,10 @@ function cadastrarBanco($conn)
             /**
              * Redirecionar para a listagem.
              */
-            redirecionar(
-                'categorias', 
-                'Registro cadastrado com sucesso.'
-            );
+            redirecionar([
+                'pagina'    => 'categorias', 
+                'mensagem'  => 'Registro cadastrado com sucesso.'
+            ]);
         } catch(PDOException $e) {
             imprimirErro($e);
         }

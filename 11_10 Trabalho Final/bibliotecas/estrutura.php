@@ -78,10 +78,10 @@ function imprimirTabela($aCabec, $aResult)
     }
 }
 
-function redirecionar($sResto, $mensagem)
+function redirecionar($aVet)
 {
-    $_SESSION['mensagem'] = $mensagem;
-    header('Location: ' . LOCALHOST . '?pg=' . $sResto);
+    $_SESSION['mensagem'] = $aVet['mensagem'];
+    header('Location: ' . LOCALHOST . '?pg=' . $aVet['pagina']);
 }
 
 function escreverMensagem() 
