@@ -38,11 +38,11 @@ function imprimirColunas($linha)
         echo    '<td> ' . $coluna . '</td>';
     }
     echo    '<td>';
-    echo        '<a href="' . LOCALHOST . '?pg=categorias&alterar=' . $linha[0] . '"> Alterar </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=' . $_GET['pg']. '&alterar=' . $linha[0] . '"> Alterar </a>';
     echo        ' | ';
-    echo        '<a href="' . LOCALHOST . '?pg=categorias&deletar=' . $linha[0] . '"> Excluir </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=' . $_GET['pg']. '&deletar=' . $linha[0] . '"> Excluir </a>';
     echo        ' | ';
-    echo        '<a href="' . LOCALHOST . '?pg=categorias&visualizar=' . $linha[0] . '"> Visualizar </a>';
+    echo        '<a href="' . LOCALHOST . '?pg=' . $_GET['pg']. '&visualizar=' . $linha[0] . '"> Visualizar </a>';
     echo    '</td>';
 }
 

@@ -6,8 +6,8 @@
 function colherDadosCampos($conn)
 {
     $sSql = "SELECT *
-               FROM categorias
-              WHERE IDCategoria = :id";
+               FROM transportadoras
+              WHERE IDTransportadora = :id";
                         
     $stmt = $conn->prepare($sSql);
 
@@ -26,19 +26,15 @@ function menuAlterar($aValores)
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="nome"> Nome </label>
-                <input type="text" name="nome" value="' . $aValores[1] . '" class="form-control" id="nome" placeholder="Nome...">
+                <input type="text" value="' . $aValores[1] . '" 
+                name="nome" class="form-control" id="nome" placeholder="Nome...">
             </div>
 
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" value="' . $aValores[2] . '" class="form-control" id="descricao" placeholder="Descrição...">
+                <label for="telefone"> Telefone </label>
+                <input type="number" value="' . $aValores[2]. '" minlength="8" name="telefone" 
+                        class="form-control" id="telefone" placeholder="Telefone...">
             </div>
-
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="figura"> Figura </label>
-                <input type="text" name="figura" value="' . $aValores[3] . '" class="form-control" id="figura" placeholder="Figura...">
-            </div>
-       
             <input type="submit" value="Alterar" name="alterar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
             
         </form>'; 
@@ -51,24 +47,22 @@ function alterarBanco($conn)
             /**
              * Inserir no Banco de Dados os dados passados pelo formulário.
              */
-            $sSql = "UPDATE categorias
-                        SET NomeCategoria   = :nome,
-                            Descricao       = :descricao,
-                            figura          = :figura
-                    WHERE IDCategoria = :id;";
+            $sSql = "UPDATE transportadoras
+                        SET NomeConpanhia    = :nome,
+                            telefone         = :telefone
+                      WHERE IDTransportadora = :id;";
             $stmt = $conn->prepare($sSql);
             $stmt->execute([
                 ':id'        => $_GET['alterar'],
                 ':nome'      => $_POST['nome'],
-                ':descricao' => $_POST['descricao'],
-                ':figura'    => $_POST['figura']
+                ':telefone'  => $_POST['telefone']
             ]);
 
             /**
              * Redirecionar para a listagem.
              */
             redirecionar(
-                'categorias', 
+                'transportadoras', 
                 'Registro alterado com sucesso.'
             );
         } catch(PDOException $e) {
