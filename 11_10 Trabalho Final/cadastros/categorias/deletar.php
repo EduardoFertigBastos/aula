@@ -1,7 +1,7 @@
 <?php
 function confirmacaoDeletar($id) 
 {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&metodo=listagem&deletar=' . $id . '">
+    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&deletar=' . $id . '">
 
             Deseja realmente deletar o Registro #'. $id . '?
        

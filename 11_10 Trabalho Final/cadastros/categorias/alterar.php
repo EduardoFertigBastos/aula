@@ -22,7 +22,7 @@ function colherDadosCampos($conn)
  */
 function menuAlterar($aValores) 
 {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&metodo=listagem&alterar=' . $aValores[0] . '">
+    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&alterar=' . $aValores[0] . '">
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="nome"> Nome </label>

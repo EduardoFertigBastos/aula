@@ -4,7 +4,7 @@
  * Menu para Cadastro
  */
 function menuCadastro() {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias">
+    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&metodo=cadastrar">
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="nome"> Nome </label>
