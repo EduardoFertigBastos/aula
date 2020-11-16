@@ -83,3 +83,11 @@ function redirecionar($sResto, $mensagem)
     $_SESSION['mensagem'] = $mensagem;
     header('Location: ' . LOCALHOST . '?pg=' . $sResto);
 }
+
+function escreverMensagem() 
+{
+    if (isset($_SESSION['mensagem'])) {
+        echo '<p class="lead">' . $_SESSION['mensagem'] . '</p>';
+        unset($_SESSION['mensagem']);
+    }
+}

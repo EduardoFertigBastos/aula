@@ -7,26 +7,26 @@
 
             if (!isset(($_GET['alterar'])) && (!isset($_GET['deletar'])) && (!isset($_GET['visualizar']))) {
 
-                require_once CATEGORIAS . 'cadastrar.php';
+                require_once TRANSPORTADORAS . 'cadastrar.php';
 
                 menuCadastro();
 
             } else if (isset($_GET['alterar'])) {
 
-                require_once CATEGORIAS . 'alterar.php';
+                require_once TRANSPORTADORAS . 'alterar.php';
                 
                 $aObjeto = colherDadosCampos($conn);
                 menuAlterar($aObjeto[0]); 
 
             } else if (isset($_GET['deletar'])) {
 
-                require_once CATEGORIAS . 'deletar.php';
+                require_once TRANSPORTADORAS . 'deletar.php';
                 
                 confirmacaoDeletar($_GET['deletar']);
 
             } else if (isset($_GET['visualizar'])) {
 
-                require_once CATEGORIAS . 'visualizar.php';
+                require_once TRANSPORTADORAS . 'visualizar.php';
                 
                 $aObjeto = colherDadosCampos($conn);
                 mostrarRegistro($aObjeto[0]); 
