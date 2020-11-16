@@ -33,7 +33,7 @@
     session_start();
 
     $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];
-    echo '<br> <input id="result" value="' . $_SESSION['calculadora'] . '"/><br>';
+    
 
     calcularResultado($_SESSION['calculadora']);
     verificarApagar($_POST['apagar'], $_SESSION['calculadora']);
@@ -97,7 +97,7 @@
         function verificarIgual($sIgual, $aCon)
         {
             if ($sIgual == '=') {
-                echo '<br>Resultado: ' . array_sum($aCon) . '<br/>';
+                $_SESSION['calculadora'] = array_sum($aCon);
             }
         }
 
@@ -116,6 +116,7 @@
         }
     };
 
+    echo '<br> <input id="result" value="' . $_SESSION['calculadora'] . '"/><br>';
     ?>
 
         <form action="index.php" method="POST">
