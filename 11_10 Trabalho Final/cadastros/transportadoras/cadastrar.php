@@ -4,7 +4,7 @@
  * Menu para Cadastro
  */
 function menuCadastro() {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&metodo=cadastrar">
+    echo '<form method="post" action="' . LOCALHOST .'?pg=transportadoras">
            
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="nome"> Nome </label>
@@ -12,13 +12,8 @@ function menuCadastro() {
             </div>
 
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição...">
-            </div>
-
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="figura"> Figura </label>
-                <input type="text" name="figura" class="form-control" id="figura" placeholder="Figura...">
+                <label for="telefone"> Telefone </label>
+                <input type="number" minlength="8" name="telefone" class="form-control" id="telefone" placeholder="Telefone...">
             </div>
        
             <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
@@ -36,36 +31,35 @@ function cadastrarBanco($conn)
             /**
              * Buscar último ID inserido no banco ja que esta tabela não é auto_increment.
              */
-            $sSql = "SELECT IDCategoria 
-                       FROM categorias
-                      ORDER BY IDCategoria DESC
+            $sSql = "SELECT IDTransportadora 
+                       FROM transportadoras
+                      ORDER BY IDTransportadora DESC
                       LIMIT 1;";
         
             $stmt = $conn->prepare($sSql);
             $stmt->execute();            
             $aResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $iUltimoID = intval($aResult[0]['IDCategoria']) + 1;
+            $iUltimoID = intval($aResult[0]['IDTransportadora']) + 1;
 
             /**
              * Inserir no Banco de Dados os dados passados pelo formulário.
              */
-            $sSql = ' INSERT INTO categorias (IDCategoria, NomeCategoria, Descricao, Figura)
-                      VALUES (:id, :nome, :descricao, :figura)';
+            $sSql = ' INSERT INTO transportadoras (IDTransportadora, NomeConpanhia, telefone)
+                      VALUES (:id, :nome, :telefone)';
                       
             $stmt = $conn->prepare($sSql);
            
             $stmt->execute([
                 ':id'        => $iUltimoID,
                 ':nome'      => $_POST['nome'],
-                ':descricao' => $_POST['descricao'],
-                ':figura'    => $_POST['figura']
+                ':telefone'  => $_POST['telefone']
             ]);
             
             /**
              * Redirecionar para a listagem.
              */
             redirecionar(
-                'categorias', 
+                'transportadoras', 
                 'Registro cadastrado com sucesso.'
             );
         } catch(PDOException $e) {
