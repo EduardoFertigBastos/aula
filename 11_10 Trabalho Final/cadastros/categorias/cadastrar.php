@@ -26,6 +26,9 @@ function menuCadastro() {
         </form>'; 
 }
 
+/**
+ * Cadastra os dados no banco.
+ */
 function cadastrarBanco($conn)
 {
     if(isset($_POST['cadastrar'])) {
@@ -34,9 +37,9 @@ function cadastrarBanco($conn)
              * Buscar último ID inserido no banco ja que esta tabela não é auto_increment.
              */
             $sSql = "SELECT IDCategoria 
-               FROM categorias
-              ORDER BY IDCategoria DESC
-              LIMIT 1;";
+                       FROM categorias
+                      ORDER BY IDCategoria DESC
+                      LIMIT 1;";
         
             $stmt = $conn->prepare($sSql);
             $stmt->execute();            

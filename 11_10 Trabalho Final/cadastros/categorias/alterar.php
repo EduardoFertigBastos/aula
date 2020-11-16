@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Busca os dados do registro que será alterado.
+ */
 function colherDadosCampos($conn)
 {
     $sSql = "SELECT *
@@ -15,7 +18,7 @@ function colherDadosCampos($conn)
 }
 
 /**
- * Menu para Cadastro
+ * Menu para Cadastro.
  */
 function menuAlterar($aValores) 
 {

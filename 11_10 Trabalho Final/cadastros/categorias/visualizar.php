@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Busca o registro que será visualizado.
+ */
 function colherDadosCampos($conn)
 {
     $sSql = "SELECT *
