@@ -7,50 +7,33 @@
     <title>Calculadora</title>
     <style>
         input {
-            width: 30px;
+            width: 40px;
+            height: 30px;
+            background-color: #ebebeb;
+            border: 1px solid black;
+            margin-bottom: 1px;
         }
 
         #apagar {
-            width: 168px;
+            width: 216px;
+        }
+
+        #result {
+            height: 40px;
+            background-color: white;
+            width: 210px;
         }
     </style>
 </head>
 
 <body>
 
-    <form action="index.php" method="POST">
-
-        <input type="submit" value="APAGAR" id="apagar" name="apagar">
-        <br />
-        <input type="submit" value="7" name="button">
-        <input type="submit" value="8" name="button">
-        <input type="submit" value="9" name="button">
-        <input type="submit" value="+" name="button">
-        <input type="submit" value="-" name="button">
-
-        <br />
-
-        <input type="submit" value="4" name="button">
-        <input type="submit" value="5" name="button">
-        <input type="submit" value="6" name="button">
-        <input type="submit" value="*" name="button">
-        <input type="submit" value="/" name="button">
-
-        <br />
-
-        <input type="submit" value="0" name="button">
-        <input type="submit" value="1" name="button">
-        <input type="submit" value="2" name="button">
-        <input type="submit" value="3" name="button">
-        <input type="submit" value="=" name="button">
-
-    </form>
-
+    
     <?php
     session_start();
 
     $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];
-    echo '<br>Calculadora: ' . $_SESSION['calculadora'] . '<br>';
+    echo '<br> <input id="result" value="' . $_SESSION['calculadora'] . '"/><br>';
 
     calcularResultado($_SESSION['calculadora']);
     verificarApagar($_POST['apagar'], $_SESSION['calculadora']);
@@ -134,6 +117,35 @@
     };
 
     ?>
+
+        <form action="index.php" method="POST">
+
+        <input type="submit" value="APAGAR" id="apagar" name="apagar">
+        <br />
+        <input type="submit" value="7" name="button">
+        <input type="submit" value="8" name="button">
+        <input type="submit" value="9" name="button">
+        <input type="submit" value="+" name="button">
+        <input type="submit" value="-" name="button">
+
+        <br />
+
+        <input type="submit" value="4" name="button">
+        <input type="submit" value="5" name="button">
+        <input type="submit" value="6" name="button">
+        <input type="submit" value="*" name="button">
+        <input type="submit" value="/" name="button">
+
+        <br />
+
+        <input type="submit" value="0" name="button">
+        <input type="submit" value="1" name="button">
+        <input type="submit" value="2" name="button">
+        <input type="submit" value="3" name="button">
+        <input type="submit" value="=" name="button">
+
+        </form>
+
 </body>
 
 </html>
