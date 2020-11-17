@@ -68,7 +68,7 @@ function menuCadastro() {
 
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="extensao"> Extensão </label>
-                <input type="text" name="extensao" class="form-control" id="extensao" placeholder="Extensao...">
+                <input type="text" name="extensao" class="form-control" maxlength="4" id="extensao" placeholder="Extensao...">
             </div>
 
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
@@ -88,7 +88,7 @@ function menuCadastro() {
 
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="reporta"> Reporta </label>
-                <input type="text" name="extensao" class="form-control" id="extensao" placeholder="Extensao...">
+                <input type="text" name="reporta" class="form-control" maxlength="1" id="reporta" placeholder="Reporta...">
             </div>
 
             <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
@@ -119,23 +119,41 @@ function cadastrarBanco($conn)
             /**
              * Inserir no Banco de Dados os dados passados pelo formulário.
              */
-            $sSql = ' INSERT INTO categorias (IDCategoria, NomeCategoria, Descricao, Figura)
-                      VALUES (:id, :nome, :descricao, :figura)';
+            $sSql = ' INSERT INTO funcionarios (IDFuncionario, Nome, Sobrenome, Titulo, TituloCortesia, DataNac, 
+                                                DataAdmissao, Endereco, Cidade, Regiao, Cep, Pais, TelefoneResidencial,
+                                                Extensao, Foto, Notas, Reportase, FotoCaminho)
+                      VALUES (:id, :nome, :sobrenome, :titulo, :cortesia, :nascimento, 
+                             :admissao, :endereco, :cidade, :regiao, :cep, :pais, :telefone, 
+                             :extensao, :foto, :notas, :reporta, :fotocaminho)';
                       
             $stmt = $conn->prepare($sSql);
            
             $stmt->execute([
-                ':id'        => $iUltimoID,
-                ':nome'      => $_POST['nome'],
-                ':descricao' => $_POST['descricao'],
-                ':figura'    => $_POST['figura']
+                ':id'           => $iUltimoID,
+                ':nome'         => $_POST['nome'],
+                ':sobrenome'    => $_POST['sobrenome'],
+                ':titulo'       => $_POST['titulo'],
+                ':cortesia'     => $_POST['cortesia'],
+                ':nascimento'   => $_POST['nascimento'],
+                ':admissao'     => $_POST['admissao'],
+                ':endereco'     => $_POST['endereco'],
+                ':cidade'       => $_POST['cidade'],
+                ':regiao'       => $_POST['regiao'],
+                ':cep'          => $_POST['cep'],
+                ':pais'         => $_POST['pais'],
+                ':telefone'     => $_POST['telefone'],
+                ':extensao'     => $_POST['extensao'],
+                ':foto'         => $_POST['foto'],
+                ':notas'        => $_POST['notas'],
+                ':reporta'      => $_POST['reporta'],
+                ':fotocaminho'  => $_POST['fotocaminho']
             ]);
             
             /**
              * Redirecionar para a listagem.
              */
             redirecionar([
-                'pagina'    => 'categorias', 
+                'pagina'    => 'funcionarios', 
                 'mensagem'  => 'Registro cadastrado com sucesso.'
             ]);
         } catch(PDOException $e) {
