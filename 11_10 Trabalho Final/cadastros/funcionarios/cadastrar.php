@@ -106,15 +106,15 @@ function cadastrarBanco($conn)
             /**
              * Buscar último ID inserido no banco ja que esta tabela não é auto_increment.
              */
-            $sSql = "SELECT IDCategoria 
-                       FROM categorias
-                      ORDER BY IDCategoria DESC
+            $sSql = "SELECT IDFuncionario 
+                       FROM funcionarios
+                      ORDER BY IDFuncionario DESC
                       LIMIT 1;";
         
             $stmt = $conn->prepare($sSql);
             $stmt->execute();            
             $aResult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $iUltimoID = intval($aResult[0]['IDCategoria']) + 1;
+            $iUltimoID = intval($aResult[0]['IDFuncionario']) + 1;
 
             /**
              * Inserir no Banco de Dados os dados passados pelo formulário.
