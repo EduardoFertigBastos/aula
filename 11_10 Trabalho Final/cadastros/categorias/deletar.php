@@ -6,7 +6,9 @@ function confirmacaoDeletar($id)
             Deseja realmente deletar o Registro #'. $id . '?
        
             <input type="submit" value="Deletar" name="deletar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-            
+            <a href="' . LOCALHOST .'?pg=categorias" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
+                Não Deletar
+            </a>
         </form>'; 
 }
 

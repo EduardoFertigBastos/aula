@@ -24,6 +24,7 @@
                 
                 confirmacaoDeletar($_GET['deletar']);
 
+
             } else if (isset($_GET['visualizar'])) {
 
                 require_once TRANSPORTADORAS . 'visualizar.php';

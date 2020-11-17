@@ -5,7 +5,10 @@ function confirmacaoDeletar($id)
 
             Deseja realmente deletar o Registro #'. $id . '?
        
-            <input type="submit" value="Deletar" name="deletar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
+            <input type="submit" value="Deletar" name="deletar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-2">
+            <a href="' . LOCALHOST .'?pg=transportadoras" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
+                Não Deletar
+            </a>
             
         </form>'; 
 }
@@ -38,5 +41,6 @@ function deletarBanco($conn)
         imprimirErro($e);
     }
 }
+
 
 deletarBanco($conn);

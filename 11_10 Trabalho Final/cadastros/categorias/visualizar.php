@@ -35,5 +35,8 @@ function mostrarRegistro($aValores)
             <div class="form-group col-sm-8 col-md-10 col-lg-8">
                 <label for="figura"> Figura </label>
                 <input type="text" name="figura" value="' . $aValores[3] . '" class="form-control" id="figura" disabled>
-            </div>';
+            </div>
+            <a href="' . LOCALHOST .'?pg=categorias" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
+                Voltar
+            </a>';
 }
