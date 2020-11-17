@@ -7,26 +7,26 @@
 
             if (!isset(($_GET['alterar'])) && (!isset($_GET['deletar'])) && (!isset($_GET['visualizar']))) {
 
-                require_once CUSTOMER . 'cadastrar.php';
+                require_once CLIENTES_DEMOGRAFICOS . 'cadastrar.php';
 
                 menuCadastro();
 
             } else if (isset($_GET['alterar'])) {
 
-                require_once CUSTOMER . 'alterar.php';
+                require_once CLIENTES_DEMOGRAFICOS . 'alterar.php';
                 
                 $aObjeto = colherDadosCampos($conn);
                 menuAlterar($aObjeto[0]); 
 
             } else if (isset($_GET['deletar'])) {
 
-                require_once CUSTOMER . 'deletar.php';
+                require_once CLIENTES_DEMOGRAFICOS . 'deletar.php';
                 
                 confirmacaoDeletar($_GET['deletar']);
 
             } else if (isset($_GET['visualizar'])) {
 
-                require_once CUSTOMER . 'visualizar.php';
+                require_once CLIENTES_DEMOGRAFICOS . 'visualizar.php';
                 
                 $aObjeto = colherDadosCampos($conn);
                 mostrarRegistro($aObjeto[0]); 
