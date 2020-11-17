@@ -57,7 +57,7 @@ function alterarBanco($conn)
                         SET NomeCategoria   = :nome,
                             Descricao       = :descricao,
                             figura          = :figura
-                    WHERE IDCategoria = :id;";
+                      WHERE IDCategoria = :id;";
             $stmt = $conn->prepare($sSql);
             $stmt->execute([
                 ':id'        => $_GET['alterar'],

@@ -18,7 +18,7 @@ function listarRegistros($conn, &$aResult, &$aCabec)
 
         $aCabec = [
             'Código',
-            'Nome',
+            'Descrição',
         ];
         
     } catch(PDOException $e) {
