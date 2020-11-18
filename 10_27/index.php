@@ -15,13 +15,19 @@
         }
 
         #apagar {
-            width: 216px;
+            width: 128px;
         }
 
         #result {
             height: 40px;
             background-color: white;
-            width: 210px;
+            width: 165px;
+        }
+
+        #vista {
+            height: 40px;
+            background-color: white;
+            width: 40px;
         }
     </style>
 </head>
@@ -34,12 +40,18 @@
 
     $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];
     
+    $aCon = [];
+    verificarApagar($_SESSION['calculadora']);
+    verificarApagarUm($_SESSION['calculadora']);
+    verificarIgual($_SESSION['calculadora']);
+    
+    imprimirConta($_SESSION['calculadora']);
 
-    calcularResultado($_SESSION['calculadora']);
-    verificarApagar($_POST['apagar'], $_SESSION['calculadora']);
-
-
-    function calcularResultado(&$sConta)
+    realizarCalculo($_SESSION['calculadora'], $_SESSION['conta']);
+    /*
+    Primeira função que usei, fazia 90% certo mas havia um equivoco numa multiplicação seguido de divisão.
+    Deixo então exposto o meu fracasso.
+    function calcularResultado(&$sConta, &$aCon)
     {
         function separarVetor($sConta, &$aCon)
         {
@@ -94,34 +106,57 @@
             }
         }
 
-        function verificarIgual($sIgual, $aCon)
-        {
-            if ($sIgual == '=') {
-                $_SESSION['calculadora'] = array_sum($aCon);
-            }
-        }
-
         separarVetor($sConta, $aCon);
         verificarMultiplicaoDivisao($aCon);
-        verificarAdicaoSubtracao($aCon);
-
-        verificarIgual($aCon[array_key_last($aCon)], $aCon);
+        verificarAdicaoSubtracao($aCon);        
     }
-
-    function verificarApagar($sApagar, &$sCalculadora)
+    */
+    
+    function verificarApagar(&$sCalculadora)
     {
-        if ($sApagar == 'APAGAR') {
+        if ($_POST['apagar']) {
             $sCalculadora = '';
             header("Refresh:0");
         }
-    };
+    }
 
-    echo '<br> <input id="result" value="' . $_SESSION['calculadora'] . '"/><br>';
+    function verificarApagarUm(&$sCalculadora)
+    {
+        if ($_POST['C']) {
+            $sCalculadora = substr($sCalculadora, 0, -1);
+        }
+    }
+
+    function verificarIgual(&$sCalculadora)
+    {
+        if ($_POST['=']) {
+            $sCalculadora = eval('return ' . $sCalculadora . ';');
+        }
+    }
+
+    function imprimirConta($sCalculadora)
+    {
+        echo '<input id="result" value="' . $sCalculadora . '"/>';
+    }
+
+    function realizarCalculo($sCalculadora, &$sResultado) {
+        $sCaracter = substr($sCalculadora, -1);
+    
+        if (($sCaracter == '+') or ($sCaracter == '-') or ($sCaracter == '*') or ($sCaracter == '/') or ($sCaracter == '=')) {
+            echo '<input id="vista" value="' . $sResultado . '"/><br />';
+        } else {
+            $sResultado = eval('return ' . $sCalculadora . ';');
+            echo '<input id="vista" value="' . $sResultado . '"/><br />';
+        }
+    }
+    
     ?>
 
         <form action="index.php" method="POST">
 
         <input type="submit" value="APAGAR" id="apagar" name="apagar">
+        <input type="submit" value="C" id="C" name="C">
+        <input type="submit" value="." id="button" name="button">
         <br />
         <input type="submit" value="7" name="button">
         <input type="submit" value="8" name="button">
@@ -143,10 +178,11 @@
         <input type="submit" value="1" name="button">
         <input type="submit" value="2" name="button">
         <input type="submit" value="3" name="button">
-        <input type="submit" value="=" name="button">
+        <input type="submit" value="=" name="=">
 
         </form>
-
+    <?php
+    ?>
 </body>
 
 </html>
