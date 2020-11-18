@@ -5,31 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
-    <style>
-        input {
-            width: 40px;
-            height: 30px;
-            background-color: #ebebeb;
-            border: 1px solid black;
-            margin-bottom: 1px;
-        }
-
-        #apagar {
-            width: 128px;
-        }
-
-        #result {
-            height: 40px;
-            background-color: white;
-            width: 165px;
-        }
-
-        #vista {
-            height: 40px;
-            background-color: white;
-            width: 40px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 
 <body>
