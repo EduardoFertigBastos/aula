@@ -13,85 +13,160 @@
     
     <?php
     session_start();
+    //error_reporting(E_ALL); 
+    //ini_set('display_errors', 'On'); 
 
-    $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];
-    
-    $aCon = [];
+    $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];    
+
     verificarApagar($_SESSION['calculadora']);
     verificarApagarUm($_SESSION['calculadora']);
-    verificarIgual($_SESSION['calculadora']);
-    
-    imprimirConta($_SESSION['calculadora']);
 
-    realizarCalculo($_SESSION['calculadora'], $_SESSION['conta']);
-    /*
-    Primeira função que usei, fazia 90% certo mas havia um equivoco numa multiplicação seguido de divisão.
-    Deixo então exposto o meu fracasso.
-    function calcularResultado(&$sConta, &$aCon)
+    calcularResultado($_SESSION['calculadora']);
+
+    function calcularResultado(&$sCalculadora)
     {
-        function separarVetor($sConta, &$aCon)
+        $aCon = [];
+        function separarVetor(&$sConta, &$aCon)
         {
             $iNum = '';
+            $iCont = 0;
+            $iLimite = 1;
+            $bPrimeiroPositivo = true;
+            $bSegundoPositivo  = true;
+            $bAux  = false;
+            $bAux2 = false;
+
             for ($x = 0; $x < strlen($sConta); $x++) {
-                if (($sConta[$x] == '+') or
-                    ($sConta[$x] == '-') or
-                    ($sConta[$x] == '*') or
-                    ($sConta[$x] == '/') or
-                    ($sConta[$x] == '=')
-                ) {
-                    $aCon[] = $iNum;
-                    $aCon[] = $sConta[$x];
-                    $iNum = '';
+                
+                if (($sConta[$x] == '+') or ($sConta[$x] == '-') or
+                    ($sConta[$x] == '*') or ($sConta[$x] == '/') or 
+                    ($sConta[$x] == '=')) {
+                    
+                    //console_log('LIMITE: ' . $iLimite);
+                    if ($bAux == false) {
+                        if ($sConta[0] == '-') {
+                            $bPrimeiroPositivo = false;
+                            $iLimite = 2;
+                        } else {
+                            $bPrimeiroPositivo = true;
+                        }   
+                        $bAux = true;
+                    }                    
+                   
+                    for ($y = 0; $y < strlen($sConta); $y++) {
+                        if (($sConta[$y] == '+') or ($sConta[$y] == '-') or
+                            ($sConta[$y] == '*') or ($sConta[$y] == '/')) {
+
+                                if ($sConta[$y + 1] == '-') {
+                                    if ($bAux2 == false) {
+                                        $bSegundoPositivo = false;
+                                        $bAux2 = true;      
+                                        $iSimb = $y;    
+                                        if ($bPrimeiroPositivo == true) {
+                                            $iLimite = 2;
+                                        } else {
+                                            $iLimite = 3;
+                                        }                           
+                                    }
+                                }
+                            }
+                    }
+
+                    $iCont = $iCont + 1;
+                    
+                    if ($iCont == $iLimite) {
+                        $aCon[0] = $iNum;
+                        $aCon[1] = $sConta[$x];
+                    }                    
+
+                    if ($iCont == $iLimite + 1) {
+
+                        $aCon[2] = substr($iNum, strlen($aCon[0]));
+ 
+                        if ($bSegundoPositivo == false) {
+                            $aCon[1] = $sConta[$iSimb];
+                        }
+
+                        resolverConta($aCon, $bPrimeiroPositivo, $bSegundoPositivo);
+
+                        if (($sConta[$x] == '=')) {
+                            
+                            $sConta = $aCon[0];
+                            $iCont  = 0;
+                            unset($aCon);
+                            
+                        } else {
+                            if ($bSegundoPositivo == true) {
+                                $aCon[1] = $sConta[$x];
+                            } 
+
+                            $sConta = $aCon[0] . $sConta[$x];
+                            $iCont  = 1;                                
+                            $aCon[2] = 0;                                                     
+                        }
+                    }
+                    
+                    if ((!(($iCont == 0) and ($sConta[0] == '-') and ($x == 0)))
+                        and (($bSegundoPositivo == true) and ($sConta[$x] == '-'))) {
+
+                        $iNum    = '';
+                    } 
+                    
                 } else {
                     $iNum = $iNum . $sConta[$x];
                 }
             }
         }
 
-        function verificarMultiplicaoDivisao(&$aCon)
+        function verificarIgual(&$sCalculadora, &$aCon)
         {
-            for ($x = 0; $x < sizeof($aCon); $x++) {
-                if ($aCon[$x] == '*') {
-                    $aCon[$x] = $aCon[$x - 1] * $aCon[$x + 1];
-                    unset($aCon[$x - 1]);
-                    unset($aCon[$x + 1]);
-                }
-
-                if ($aCon[$x] == '/') {
-                    $aCon[$x] = $aCon[$x - 1] / $aCon[$x + 1];
-                    unset($aCon[$x - 1]);
-                    unset($aCon[$x + 1]);
-                }
+            if ($_POST['=']) {
+                $sCalculadora = $aCon[0];
+                unset($aCon);
             }
         }
-
-        function verificarAdicaoSubtracao(&$aCon)
-        {
-            for ($x = 0; $x < sizeof($aCon); $x++) {
-                if ($aCon[$x] == '+') {
-                    $aCon[$x] = $aCon[$x - 1] + $aCon[$x + 1];
-                    unset($aCon[$x - 1]);
-                    unset($aCon[$x + 1]);
-                }
-
-                if ($aCon[$x] == '-') {
-                    $aCon[$x] = $aCon[$x - 1] - $aCon[$x + 1];
-                    unset($aCon[$x - 1]);
-                    unset($aCon[$x + 1]);
-                }
-            }
-        }
-
-        separarVetor($sConta, $aCon);
-        verificarMultiplicaoDivisao($aCon);
-        verificarAdicaoSubtracao($aCon);        
+       
+        
+        separarVetor($sCalculadora, $aCon);
     }
-    */
+
+    function resolverConta(&$aCon, $bPrimeiroPositivo, $bSegundoPositivo)
+    {
+        console_log('PARTE 1: ' . $aCon[0]);
+        $bPrimeiroPositivo ? $aCon[0] : $aCon[0] = 0 - floatval($aCon[0]);
+        $bSegundoPositivo  ? $aCon[2] : $aCon[2] = 0 - floatval($aCon[2]);
+  
+        console_log('2 PARTE: ' . $aCon[2]);
+        if ($aCon[1] == '+') {
+            $aCon[0] = $aCon[0] + $aCon[2];
+        }
+        
+        if ($aCon[1] == '-') {
+            $aCon[0] = $aCon[0] - $aCon[2];
+        }
+        
+        if ($aCon[1] == '*') {
+            $aCon[0] = $aCon[0] * $aCon[2];
+        }
+
+        if ($aCon[1] == '/') {
+            $aCon[0] = $aCon[0] / $aCon[2];
+        }
+        $_SESSION['resultado']   = $aCon[0];
+    }
     
+    function vet($e) 
+    {
+        echo '<pre>';
+             var_dump($e); 
+        echo '</pre>';
+    }
+
     function verificarApagar(&$sCalculadora)
     {
         if ($_POST['apagar']) {
             $sCalculadora = '';
+            $_SESSION['resultado'] = '';
             header("Refresh:0");
         }
     }
@@ -103,62 +178,44 @@
         }
     }
 
-    function verificarIgual(&$sCalculadora)
-    {
-        if ($_POST['=']) {
-            $sCalculadora = eval('return ' . $sCalculadora . ';');
-        }
-    }
+    function console_log( $data ){
+        echo '<script>';
+        echo 'console.log('. json_encode( $data ) .')';
+        echo '</script>';
+      }
 
-    function imprimirConta($sCalculadora)
-    {
-        echo '<input id="result" value="' . $sCalculadora . '"/>';
-    }
-
-    function realizarCalculo($sCalculadora, &$sResultado) {
-        $sCaracter = substr($sCalculadora, -1);
-    
-        if (($sCaracter == '+') or ($sCaracter == '-') or ($sCaracter == '*') or ($sCaracter == '/') or ($sCaracter == '=')) {
-            echo '<input id="vista" value="' . $sResultado . '"/><br />';
-        } else {
-            $sResultado = eval('return ' . $sCalculadora . ';');
-            echo '<input id="vista" value="' . $sResultado . '"/><br />';
-        }
-    }
-    
+      echo '<input type="text" id="result" value="' . $_SESSION['calculadora'] . '">';
+      echo '<input type="text" id="vista" value="' . $_SESSION['resultado'] . '">';
     ?>
 
         <form action="index.php" method="POST">
 
-        <input type="submit" value="APAGAR" id="apagar" name="apagar">
-        <input type="submit" value="C" id="C" name="C">
-        <input type="submit" value="." id="button" name="button">
-        <br />
-        <input type="submit" value="7" name="button">
-        <input type="submit" value="8" name="button">
-        <input type="submit" value="9" name="button">
-        <input type="submit" value="+" name="button">
-        <input type="submit" value="-" name="button">
+            <input type="submit" value="APAGAR" id="apagar" name="apagar">
+            <input type="submit" value="C" id="C" name="C">
+            <input type="submit" value="." id="button" name="button">
+            <br />
+            <input type="submit" value="7" name="button">
+            <input type="submit" value="8" name="button">
+            <input type="submit" value="9" name="button">
+            <input type="submit" value="+" name="button">
+            <input type="submit" value="-" name="button">
 
-        <br />
+            <br />
 
-        <input type="submit" value="4" name="button">
-        <input type="submit" value="5" name="button">
-        <input type="submit" value="6" name="button">
-        <input type="submit" value="*" name="button">
-        <input type="submit" value="/" name="button">
+            <input type="submit" value="4" name="button">
+            <input type="submit" value="5" name="button">
+            <input type="submit" value="6" name="button">
+            <input type="submit" value="*" name="button">
+            <input type="submit" value="/" name="button">
 
-        <br />
+            <br />
 
-        <input type="submit" value="0" name="button">
-        <input type="submit" value="1" name="button">
-        <input type="submit" value="2" name="button">
-        <input type="submit" value="3" name="button">
-        <input type="submit" value="=" name="=">
+            <input type="submit" value="0" name="button">
+            <input type="submit" value="1" name="button">
+            <input type="submit" value="2" name="button">
+            <input type="submit" value="3" name="button">
+            <input type="submit" value="=" name="button">
 
         </form>
-    <?php
-    ?>
 </body>
-
 </html>
