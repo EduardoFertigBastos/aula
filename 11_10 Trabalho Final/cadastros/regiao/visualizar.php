@@ -22,14 +22,19 @@ function colherDadosCampos($conn)
  */
 function mostrarRegistro($aValores) 
 {
-    echo ' <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="codigo"> Código </label>
-                <input type="text" name="codigo" value="' . $aValores[0] . '" class="form-control" id="codigo" disabled>
+    echo ' 
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="codigo"> Código </label>
+                    <input type="text" name="codigo" value="' . $aValores[0] . '" class="form-control" id="codigo" disabled>
+                </div>
             </div>
-            
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" value="' . $aValores[1] . '" class="form-control" id="descricao" disabled>
+    
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="descricao"> Descrição </label>
+                    <input type="text" name="descricao" value="' . $aValores[1] . '" class="form-control" id="descricao" disabled>
+                </div>
             </div>
 
             <a href="' . LOCALHOST .'?pg=regiao" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">

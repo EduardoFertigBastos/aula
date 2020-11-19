@@ -24,19 +24,25 @@ function menuAlterar($aValores)
 {
     echo '<form method="post" action="' . LOCALHOST .'?pg=categorias&alterar=' . $aValores[0] . '">
            
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="nome"> Nome </label>
-                <input type="text" name="nome" value="' . $aValores[1] . '" class="form-control" id="nome" placeholder="Nome...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="nome"> Nome </label>
+                    <input type="text" name="nome" value="' . $aValores[1] . '" class="form-control" id="nome" placeholder="Nome...">
+                </div>  
             </div>
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" value="' . $aValores[2] . '" class="form-control" id="descricao" placeholder="Descrição...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="descricao"> Descrição </label>
+                    <input type="text" name="descricao" value="' . $aValores[2] . '" class="form-control" id="descricao" placeholder="Descrição...">
+                </div>
             </div>
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="figura"> Figura </label>
-                <input type="text" name="figura" value="' . $aValores[3] . '" class="form-control" id="figura" placeholder="Figura...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="figura"> Figura </label>
+                    <input type="text" name="figura" value="' . $aValores[3] . '" class="form-control" id="figura" placeholder="Figura...">
+                </div>
             </div>
        
             <input type="submit" value="Alterar" name="alterar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">

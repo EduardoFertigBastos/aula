@@ -22,22 +22,28 @@ function colherDadosCampos($conn)
  */
 function mostrarRegistro($aValores) 
 {
-    echo 
-        '<div class="form-group col-sm-8 col-md-10 col-lg-8">
-            <label for="codigo"> Código </label>
-            <input type="text" name="codigo" value="' . $aValores[0] . '" class="form-control" id="codigo" disabled>
-        </div>
-    
-        <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            <label for="nome"> Nome </label>
-            <input type="text" value="' . $aValores[1] . '" 
-            name="nome" class="form-control" id="nome" disabled>
+    echo '
+        <div class="form-row">
+            <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                <label for="codigo"> Código </label>
+                <input type="text" name="codigo" value="' . $aValores[0] . '" class="form-control" id="codigo" disabled>
+            </div>
         </div>
 
-        <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            <label for="telefone"> Telefone </label>
-            <input type="text" value="' . $aValores[2]. '" minlength="8" name="telefone" 
-                    class="form-control" id="telefone" disabled>
+        <div class="form-row">
+            <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                <label for="nome"> Nome </label>
+                <input type="text" value="' . $aValores[1] . '" 
+                name="nome" class="form-control" id="nome" disabled>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                <label for="telefone"> Telefone </label>
+                <input type="text" value="' . $aValores[2]. '" minlength="8" name="telefone" 
+                        class="form-control" id="telefone" disabled>
+            </div>
         </div>
         
         <a href="' . LOCALHOST .'?pg=transportadoras" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">

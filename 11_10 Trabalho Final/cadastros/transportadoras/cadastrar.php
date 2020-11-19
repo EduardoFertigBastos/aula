@@ -6,14 +6,18 @@
 function menuCadastro() {
     echo '<form method="post" action="' . LOCALHOST .'?pg=transportadoras">
            
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="nome"> Nome </label>
-                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="nome"> Nome </label>
+                    <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome...">
+                </div>
             </div>
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="telefone"> Telefone </label>
-                <input type="number" minlength="8" name="telefone" class="form-control" id="telefone" placeholder="Telefone...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="telefone"> Telefone </label>
+                    <input type="number" minlength="8" name="telefone" class="form-control" id="telefone" placeholder="Telefone...">
+                </div>
             </div>
        
             <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">

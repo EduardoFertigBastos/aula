@@ -24,9 +24,11 @@ function menuAlterar($aValores)
 {
     echo '<form method="post" action="' . LOCALHOST .'?pg=regiao&alterar=' . $aValores[0] . '">
            
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="descricao"> Descrição </label>
-                <input type="text" name="descricao" value="' . $aValores[1] . '" class="form-control" id="descricao" placeholder="Descrição...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="descricao"> Descrição </label>
+                    <input type="text" name="descricao" value="' . $aValores[1] . '" class="form-control" id="descricao" placeholder="Descrição...">
+                </div>
             </div>
        
             <input type="submit" value="Alterar" name="alterar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">

@@ -24,17 +24,22 @@ function menuAlterar($aValores)
 {
     echo '<form method="post" action="' . LOCALHOST .'?pg=transportadoras&alterar=' . $aValores[0] . '">
            
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="nome"> Nome </label>
-                <input type="text" value="' . $aValores[1] . '" 
-                name="nome" class="form-control" id="nome" placeholder="Nome...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="nome"> Nome </label>
+                    <input type="text" value="' . $aValores[1] . '" 
+                    name="nome" class="form-control" id="nome" placeholder="Nome...">
+                </div>
             </div>
 
-            <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                <label for="telefone"> Telefone </label>
-                <input type="number" value="' . $aValores[2]. '" minlength="8" name="telefone" 
-                        class="form-control" id="telefone" placeholder="Telefone...">
+            <div class="form-row">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                    <label for="telefone"> Telefone </label>
+                    <input type="text" value="' . $aValores[2]. '" minlength="8" name="telefone" 
+                            class="form-control" id="telefone" placeholder="Telefone...">
+                </div>
             </div>
+            
             <input type="submit" value="Alterar" name="alterar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
             <a href="' . LOCALHOST .'?pg=transportadoras" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
                 Não Alterar

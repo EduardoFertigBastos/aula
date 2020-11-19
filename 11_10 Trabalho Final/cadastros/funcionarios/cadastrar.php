@@ -135,12 +135,12 @@ function cadastrarBanco($conn)
             /**
              * Inserir no Banco de Dados os dados passados pelo formulário.
              */
-            $sSql = ' INSERT INTO funcionarios (IDFuncionario, Nome, Sobrenome, Titulo, TituloCortesia, DataNac, 
-                                                DataAdmissao, Endereco, Cidade, Regiao, Cep, Pais, TelefoneResidencial,
-                                                Extensao, Foto, Notas, Reportase, FotoCaminho)
-                      VALUES (:id, :nome, :sobrenome, :titulo, :cortesia, :nascimento, 
-                             :admissao, :endereco, :cidade, :regiao, :cep, :pais, :telefone, 
-                             :extensao, :foto, :notas, :reporta, :fotocaminho)';
+            $sSql = ' INSERT INTO funcionarios (IDFuncionario, Nome, Sobrenome, Titulo, TituloCortesia, 
+                                                DataNac, DataAdmissao, Endereco, Cidade, Regiao, Cep, Pais, 
+                                                TelefoneResidencial, Extensao, Foto, Notas, Reportase, FotoCaminho)
+                            VALUES (:id, :nome, :sobrenome, :titulo, :cortesia, 
+                                    :nascimento, :admissao, :endereco, :cidade, :regiao, :cep, :pais,
+                                    :telefone, :extensao, :foto, :notas, :reporta, :fotocaminho)';
                       
             $stmt = $conn->prepare($sSql);
            
