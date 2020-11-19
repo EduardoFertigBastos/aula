@@ -13,9 +13,8 @@
     
     <?php
     session_start();
-    //error_reporting(E_ALL); 
-    //ini_set('display_errors', 'On'); 
 
+    // Concatena os caracteres pressionados.
     $_SESSION['calculadora'] = $_SESSION['calculadora'] . $_POST['button'];    
 
     verificarApagar($_SESSION['calculadora']);
@@ -23,9 +22,16 @@
 
     calcularResultado($_SESSION['calculadora']);
 
+    /**
+     * Função que calcula o Resultado.
+     */
     function calcularResultado(&$sCalculadora)
     {
         $aCon = [];
+
+        /**
+         * Separa a string em um Vetor em Número 1, Operador, Número 2.
+         */
         function separarVetor(&$sConta, &$aCon)
         {
             $iNum = '';
@@ -36,13 +42,15 @@
             $bAux  = false;
             $bAux2 = false;
 
+            // Percorre toda a string.
             for ($x = 0; $x < strlen($sConta); $x++) {
                 
+                // Se o caracter for um sinal...
                 if (($sConta[$x] == '+') or ($sConta[$x] == '-') or
                     ($sConta[$x] == '*') or ($sConta[$x] == '/') or 
                     ($sConta[$x] == '=')) {
                     
-                    //console_log('LIMITE: ' . $iLimite);
+                    // Verifica se o primeiro número é negativo
                     if ($bAux == false) {
                         if ($sConta[0] == '-') {
                             $bPrimeiroPositivo = false;
@@ -53,6 +61,7 @@
                         $bAux = true;
                     }                    
                    
+                    // Verifica se o segundo número é negativo.
                     for ($y = 0; $y < strlen($sConta); $y++) {
                         if (($sConta[$y] == '+') or ($sConta[$y] == '-') or
                             ($sConta[$y] == '*') or ($sConta[$y] == '/')) {
@@ -71,14 +80,16 @@
                                 }
                             }
                     }
-
+                    // Aumenta a contagem de operadores envolvidos na equação.
                     $iCont = $iCont + 1;
                     
+                    // Inclui no vetor caso seja o primeiro número a ser digitado.
                     if ($iCont == $iLimite) {
                         $aCon[0] = $iNum;
                         $aCon[1] = $sConta[$x];
                     }                    
 
+                    // Inclui no vetor caso o primeiro número já exista no vetor.
                     if ($iCont == $iLimite + 1) {
 
                         $aCon[2] = substr($iNum, strlen($aCon[0]));
@@ -89,6 +100,7 @@
 
                         resolverConta($aCon, $bPrimeiroPositivo, $bSegundoPositivo);
 
+                        // Verifica se o botão pressionado foi '='.
                         if (($sConta[$x] == '=')) {
                             
                             $sConta = $aCon[0];
@@ -106,6 +118,8 @@
                         }
                     }
                     
+                    // Se entrar na condição, o número é resetado, afinal ele já 
+                    // foi quebrado e inserido no vetor anteriormente.
                     if ((!(($iCont == 0) and ($sConta[0] == '-') and ($x == 0)))
                         and (($bSegundoPositivo == true) and ($sConta[$x] == '-'))) {
 
@@ -113,11 +127,16 @@
                     } 
                     
                 } else {
+                    //Concatena o número. 
                     $iNum = $iNum . $sConta[$x];
                 }
             }
         }
 
+        /**
+         * Função antiga pra verificar se o botão era '='. 
+         * Não é mais usada. 
+         */
         function verificarIgual(&$sCalculadora, &$aCon)
         {
             if ($_POST['=']) {
@@ -130,13 +149,15 @@
         separarVetor($sCalculadora, $aCon);
     }
 
+    /**
+     * Função para calcular a conta.
+     */
     function resolverConta(&$aCon, $bPrimeiroPositivo, $bSegundoPositivo)
     {
-        console_log('PARTE 1: ' . $aCon[0]);
+        // Verifica se o primeiro ou se o segundo número são positivos.
         $bPrimeiroPositivo ? $aCon[0] : $aCon[0] = 0 - floatval($aCon[0]);
         $bSegundoPositivo  ? $aCon[2] : $aCon[2] = 0 - floatval($aCon[2]);
   
-        console_log('2 PARTE: ' . $aCon[2]);
         if ($aCon[1] == '+') {
             $aCon[0] = $aCon[0] + $aCon[2];
         }
@@ -155,6 +176,9 @@
         $_SESSION['resultado']   = $aCon[0];
     }
     
+    /**
+     * Função para deixar o var_dump mais fácil de ser lido.
+     */
     function vet($e) 
     {
         echo '<pre>';
@@ -162,6 +186,9 @@
         echo '</pre>';
     }
 
+    /**
+     * Função para apagar tudo.
+     */
     function verificarApagar(&$sCalculadora)
     {
         if ($_POST['apagar']) {
@@ -171,6 +198,9 @@
         }
     }
 
+    /**
+     * Função para apagar o último digito.
+     */
     function verificarApagarUm(&$sCalculadora)
     {
         if ($_POST['C']) {
@@ -178,16 +208,23 @@
         }
     }
 
-    function console_log( $data ){
+    /**
+     * Função para facilitar o debug.
+     */
+    function console_log($data){
         echo '<script>';
         echo 'console.log('. json_encode( $data ) .')';
         echo '</script>';
       }
 
+      /**
+       * Inputs que mostram a conta, e o resultado salvo anteriormente, respectivamente.
+       */
       echo '<input type="text" id="result" value="' . $_SESSION['calculadora'] . '">';
       echo '<input type="text" id="vista" value="' . $_SESSION['resultado'] . '">';
     ?>
 
+        <!-- Calculadora -->
         <form action="index.php" method="POST">
 
             <input type="submit" value="APAGAR" id="apagar" name="apagar">
