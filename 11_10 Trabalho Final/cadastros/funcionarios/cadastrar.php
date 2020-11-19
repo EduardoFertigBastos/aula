@@ -33,12 +33,12 @@ function menuCadastro() {
             <div class="form-row">
                 <div class="form-group col-sm-8 col-md-4 col-lg-3">
                     <label for="nascimento"> Data de Nascimento </label>
-                    <input type="date" name="nascimento" class="form-control" id="nascimento" placeholder="Dascimento...">
+                    <input type="datetime-local" name="nascimento" class="form-control" id="nascimento" placeholder="Dascimento...">
                 </div>
 
                 <div class="form-group col-sm-8 col-md-4 col-lg-3">
                     <label for="admissao"> Admissão </label>
-                    <input type="date" name="admissao" class="form-control" id="admissao" placeholder="Admissão...">
+                    <input type="datetime-local" name="admissao" class="form-control" id="admissao" placeholder="Admissão...">
                 </div>
 
                 <div class="form-group col-sm-8 col-md-2 col-lg-2">
