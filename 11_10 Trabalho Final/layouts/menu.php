@@ -40,19 +40,24 @@
                 
                 <ul class="navbar-nav">
                     
-                <?php
+                    <?php
 
-                foreach($aItens as $linha) {
-                    echo '  <li class="nav-item">
-                                <a href="?pg=' . $linha[1] . '" class="nav-link">' . 
-                                    $linha[0] . 
-                                '</a>
-                            </li>';
-                }
+                    foreach($aItens as $linha) {
+                        echo '  <li class="nav-item">
+                                    <a href="?pg=' . $linha[1] . '" class="nav-link">' . 
+                                        $linha[0] . 
+                                    '</a>
+                                </li>';
+                    }
 
-                ?>
+                    ?>
                 
                 </ul>
+                
+                <a href="?sair=1" class="btn btn-link ml-auto btn-light btn-sm text-decoration-none">
+                    <b>Sair</b>
+                </a>
+                
 
                
             </div>

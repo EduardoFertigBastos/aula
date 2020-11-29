@@ -7,8 +7,5 @@
     <title>NorthWind</title>
 </head>
 <body>
-    <?php
-    require_once LAYOUTS . 'menu.php';
-    ?>
-    <div class="container">
+    
         
