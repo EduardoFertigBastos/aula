@@ -7,7 +7,7 @@
     define('ESTRUTURA',                 ROOT_DIR . '/estrutura/');
     define('CADASTROS',                 ROOT_DIR . '/cadastros/');
     define('LAYOUTS',                   ROOT_DIR . '/layouts/');
-
+  
     define('CATEGORIAS',                ROOT_DIR . '/cadastros/categorias/');
     define('CLIENTES',                  ROOT_DIR . '/cadastros/clientes/');
     define('CLIENTES_DEMOGRAFICOS',     ROOT_DIR . '/cadastros/clientes_demograficos/');
