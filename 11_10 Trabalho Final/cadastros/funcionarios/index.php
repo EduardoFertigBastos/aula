@@ -1,5 +1,9 @@
 <div class="row justify-content-center mt-2">
 
+    <div class="justify-content-center my-2">
+        <h1> Funcionários </h1>
+    </div>
+
     <div class="col-sm-12 col-md-8 col-lg-8 offset-sm-4 offset-md-2 offset-lg-2">
 
         <?php

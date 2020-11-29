@@ -76,6 +76,7 @@ function imprimirTabela($aCabec, $aResult)
                     </td>
                 </tr>';
     }
+    echo '</table>';
 }
 
 function redirecionar($aVet)

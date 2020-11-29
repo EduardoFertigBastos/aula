@@ -11,7 +11,7 @@
                         <blockquote class="blockquote text-center">
 
                             <p class="mb-0">
-                                Se todo dia você achar que vai morrer amanhã, algum dia você estará certo 
+                                Se todo dia você achar que vai morrer amanhã, algum dia você estará certo.
                             </p>
                             <footer class="blockquote-footer">
                                 Unknown

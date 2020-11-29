@@ -11,10 +11,11 @@ if ($_SESSION['usuarioLogado']) {
     } else {
         require_once 'cadastros/' . $_GET['pg'] . '/index.php';
     }
-
-    echo '</div>';
     
+    echo '</div>';
     require_once LAYOUTS . 'footer.php';
+    
+
 } else {
     require_once LAYOUTS . 'login.php';
 }
