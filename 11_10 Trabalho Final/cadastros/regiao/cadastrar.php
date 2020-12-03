@@ -4,18 +4,18 @@
  * Menu para Cadastro
  */
 function menuCadastro() {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=regiao">
+    echo '  <form method="post" action="' . LOCALHOST .'?pg=regiao">';
     
-            <div class="form-row">
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-                    <label for="descricao"> Descrição </label>
-                    <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição...">
-                </div>
-            </div>
+    echo '      <div class="form-row">';
+    echo '          <div class="form-group col-sm-8 col-md-10 col-lg-8">';
+    echo '              <label for="descricao"> Descrição </label>';
+    echo '              <input type="text" name="descricao" class="form-control" id="descricao" placeholder="Descrição...">';
+    echo '          </div>';
+    echo '      </div>';
        
-            <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
+    echo '      <input type="submit" value="Cadastrar" name="cadastrar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">';
             
-        </form>'; 
+    echo '  </form>'; 
 }
 
 /**

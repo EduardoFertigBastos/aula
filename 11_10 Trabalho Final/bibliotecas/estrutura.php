@@ -25,7 +25,7 @@ function imprimirErro($e)
 function imprimirCabecalho($aCabec)
 {
     foreach ($aCabec as $linha) {
-        echo '<th>' . $linha . '</th>';
+        echo '<th scope="col">' . $linha . '</th>';
     }
 }
 
@@ -35,7 +35,13 @@ function imprimirCabecalho($aCabec)
 function imprimirColunas($linha)
 {
     foreach ($linha as $coluna) {
-        echo    '<td> ' . $coluna . '</td>';
+        if ($linha[0] != $coluna) {
+            echo    '<td scope="row"> ' . $coluna . '</td>';
+        } else {
+            echo    '<td> ' . $coluna . '</td>';
+        }
+
+        
     }
     echo    '<td>';
     echo        '<a href="' . LOCALHOST . '?pg=' . $_GET['pg']. '&alterar=' . $linha[0] . '"> Alterar </a>';
@@ -54,29 +60,33 @@ function imprimirTabela($aCabec, $aResult)
     /**
      * Cabeçalho
      */
-    echo    '<table class="table table-striped">';
-    echo        '<tr>';
+    echo '  <table class="table table-striped">';
+    echo '      <thead>';
+    echo '          <tr>';
                         imprimirCabecalho($aCabec);
-    echo                '<th colpasn="2">Ações</td>';
-    echo         '</tr>';
+    echo '              <th colpasn="2">Ações</td>';
+    echo '          </tr>';
+    echo '      </thead>';
 
     /**
      * Dados
      */
+    echo '      <tbody>';
     if (count($aResult)) {
         foreach ($aResult as $linha) {
-            echo '<tr>';
+            echo '  <tr>';
                         imprimirColunas($linha);
-            echo '</tr>';
+            echo '  </tr>';
         }
     } else {
-        echo    '<tr>
-                    <td colspan="3">
-                        Nenhum resultado foi encontrado
-                    </td>
-                </tr>';
+        echo '       <tr>';
+        echo '            <td colspan="3">';
+        echo '                Nenhum resultado foi encontrado';
+        echo '            </td>';
+        echo '        </tr>';
     }
-    echo '</table>';
+    echo    '   </tbody>';
+    echo '  </table>';
 }
 
 function redirecionar($aVet)

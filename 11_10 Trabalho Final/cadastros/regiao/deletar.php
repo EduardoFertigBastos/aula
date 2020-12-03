@@ -1,15 +1,15 @@
 <?php
 function confirmacaoDeletar($id) 
 {
-    echo '<form method="post" action="' . LOCALHOST .'?pg=regiao&deletar=' . $id . '">
+    echo '  <form method="post" action="' . LOCALHOST .'?pg=regiao&deletar=' . $id . '">';
 
-            Deseja realmente deletar o Registro #'. $id . '?
-       
-            <input type="submit" value="Deletar" name="deletar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-            <a href="' . LOCALHOST .'?pg=regiao" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
-                Não Deletar
-            </a>
-        </form>'; 
+    echo '      Deseja realmente deletar o Registro #'. $id . '?';
+    
+    echo '      <input type="submit" value="Deletar" name="deletar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">';
+    echo '      <a href="' . LOCALHOST .'?pg=regiao" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1">';
+    echo '          Não Deletar';
+    echo '      </a>';
+    echo '  </form>'; 
 }
 
 function deletarBanco($conn)
