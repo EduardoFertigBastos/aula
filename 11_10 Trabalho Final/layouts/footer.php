@@ -14,7 +14,7 @@
                                 Se todo dia você achar que vai morrer amanhã, algum dia você estará certo.
                             </p>
                             <footer class="blockquote-footer">
-                                Unknown
+                                Steve Jobs - Address Commencement 
                             </footer>
                         </blockquote>
                     </div>
